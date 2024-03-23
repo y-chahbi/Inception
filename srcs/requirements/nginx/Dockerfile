@@ -3,21 +3,20 @@ FROM debian:latest
 RUN apt-get update
 RUN apt-get install -y nginx
 RUN apt-get update && apt-get install -y openssl
-
-RUN addgroup --system www && adduser --system --ingroup www www
+RUN apt-get update && apt-get install -y php php8.2-fpm
 
 COPY conf/sslconf /etc/ssl/sslconf
-COPY conf/nginx.conf /etc/nginx/nginx.conf
-COPY conf/default.conf /etc/nginx/conf.d/default.conf
-COPY index.html /usr/share/nginx/html
-# RUN nginx -s reload
+
+COPY conf/default /etc/nginx/sites-available/
+RUN mkdir -p /etc/nginx/certs/
+
+COPY index.php /var/www/html
+
 
 COPY tools/generate_certificate.sh /usr/local/bin/generate_certificate.sh
 RUN chmod +x /usr/local/bin/generate_certificate.sh
 
-RUN /usr/local/bin/generate_certificate.sh
 
+# EXPOSE 80
 
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ "./usr/local/bin/generate_certificate.sh" ]
