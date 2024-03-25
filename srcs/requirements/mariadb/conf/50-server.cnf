@@ -1,36 +1,6 @@
-# Bind address (0.0.0.0 allows connections from any host)
 [mysqld]
-bind-address = 0.0.0.0
-
-# Port for connections (default is 3306)
-port = 3306
-
-# Data directory where MariaDB stores its files
 datadir = /var/lib/mysql
-
-# Unix socket file for local connections
-socket = /var/run/mysqld/mysqld.sock
-
-# User under which MariaDB runs
+socket  = /run/mysqld/mysqld.sock
+bind-address            = 0.0.0.0
+port = 3306
 user = mysql
-
-# Default character set for the server (adjust based on your needs)
-character-set-server = utf8mb4
-
-# Maximum number of concurrent connections (adjust based on your system resources)
-max_connections = 100
-
-# Error log file
-log_error = /var/log/mysql/error.log
-
-# Adjust these for security (consult MariaDB documentation for recommendations)
-# By default, password authentication is disabled for root user
-# Uncomment and set a strong password for the root user!
-# mysql_native_password = 
-
-# Restrict root user access to localhost only (optional security measure)
-# skip-networking
-
-# Only allow connections from specific IP addresses (optional security measure)
-# skip-external-locking
-# host-allow = 192.168.1.0/24  # Allow connections from this subnet only
