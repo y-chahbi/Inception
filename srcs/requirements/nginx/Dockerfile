@@ -13,10 +13,10 @@ RUN mkdir -p /etc/nginx/certs/
 COPY index.php /var/www/html
 
 
-COPY tools/generate_certificate.sh /usr/local/bin/generate_certificate.sh
-RUN chmod +x /usr/local/bin/generate_certificate.sh
+COPY tools/script.sh /usr/local/bin/script.sh
+RUN chmod +x /usr/local/bin/script.sh
 
 
 # EXPOSE 80
 
-CMD [ "./usr/local/bin/generate_certificate.sh" ]
+CMD [ "./usr/local/bin/script.sh" ]
