@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  mariadb:
+    build: ./requirements/mariadb
+    image: mariadb
+    ports:
+      - 3306:3306
+    env_file:
+      - .env
+    networks:
+      - ConNet
+  nginx:
+    build: ./requirements/nginx
+    image: nginx
+    ports:
+      - 443:443
+    env_file:
+      - .env
+    networks:
+      - ConNet
+networks:
+  ConNet:

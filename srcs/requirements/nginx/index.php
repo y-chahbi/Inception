@@ -9,25 +9,23 @@
     <script src='main.js'></script>
 </head>
 <body>
-    <p>hello from html 2 </p>
+    <p>hello from html 7 </p>
 
-    <?php
-        $servername = "md"; // Container name of the MariaDB container
-        $username = "ychahbi";
-        $password = "hello001";
-        $database = "db";
+        <?php
+            $servername = "srcs_mariadb_1"; // Container name of the MariaDB container
+            $username = "ychahbi";
+            $password = "hello001";
+            $database = "db";
 
-        // Create connection
-        echo "last step!";
-        $conn = new mysqli($servername, $username, $password, $database);
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $database);
 
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-            echo "Connected Error";
-        }
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
 
-        echo "Connected successfully";
-    ?>
+            echo "Connected successfully";
+        ?>
 </body>
 </html>
