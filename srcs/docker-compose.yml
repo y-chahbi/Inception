@@ -1,5 +1,17 @@
 version: '3.1'
 services:
+  wordpress:
+    build: ./requirements/wordpress
+    container_name: wordpress
+    image: wordpress
+    depends_on:
+      - mariadb
+    ports:
+      - 9000:9000
+    env_file:
+      - .env
+    networks:
+      - ConNet
   mariadb:
     build: ./requirements/mariadb
     container_name: mariadb
@@ -13,7 +25,7 @@ services:
   nginx:
     build: ./requirements/nginx
     depends_on:
-      - mariadb
+      - wordpress
     container_name: nginx
     image: nginx
     ports:
