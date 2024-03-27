@@ -9,23 +9,38 @@
     <script src='main.js'></script>
 </head>
 <body>
-    <p>hello from html 7 </p>
+    <p>hello from html 9 </p>
 
         <?php
-            $servername = "srcs_mariadb_1"; // Container name of the MariaDB container
+
+            set_error_handler (
+                function($errno, $errstr, $errfile, $errline) {
+                    throw new ErrorException($errstr, $errno, 0, $errfile, $errline);     
+                }
+            );
+
+            echo "PHP WORKING!";
+            $servername = "mariadb"; // This should be the service name of your MariaDB container in Docker Compose
             $username = "ychahbi";
             $password = "hello001";
-            $database = "db";
-
+            $dbname = "db";
+            echo "Connecting...";
+            
             // Create connection
-            $conn = new mysqli($servername, $username, $password, $database);
+            try {
+                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                echo "Connected successfully";
 
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
+                // Check connection
+                // if ($conn->connect_error) {
+                //     echo "Connection failed: " . $conn->connect_error;
+                // } else {
+                //     echo "Connected successfully";
+                // }
+            } catch (Exception $e) {
+                echo 'Caught exception: ',  $e->getMessage(), "\n";
             }
-
-            echo "Connected successfully";
+            
         ?>
 </body>
 </html>

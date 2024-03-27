@@ -2,6 +2,7 @@ version: '3.1'
 services:
   mariadb:
     build: ./requirements/mariadb
+    container_name: mariadb
     image: mariadb
     ports:
       - 3306:3306
@@ -11,6 +12,9 @@ services:
       - ConNet
   nginx:
     build: ./requirements/nginx
+    depends_on:
+      - mariadb
+    container_name: nginx
     image: nginx
     ports:
       - 443:443

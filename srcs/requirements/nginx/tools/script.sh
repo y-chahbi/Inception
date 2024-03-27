@@ -8,7 +8,7 @@ cp /etc/ssl/private/privkey.pem /etc/nginx/certs/privkey.pem
 echo 'fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 include fastcgi_params;' > /etc/nginx/snippets/fastcgi-php.conf
 
-sed -i 'listen = /run/php/php8.2-fpm.sock' /etc/php/8.2/fpm/pool.d/www.conf > /dev/null 2>&1
+sed -i 's/^listen = .*/listen = 9000/' /etc/php/8.2/fpm/pool.d/www.conf
 
 service php8.2-fpm start
 
