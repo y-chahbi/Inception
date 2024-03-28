@@ -6,6 +6,8 @@ services:
     image: wordpress
     depends_on:
       - mariadb
+    volumes:
+      - ./var/Data:/var/www/html
     ports:
       - 9000:9000
     env_file:
@@ -26,6 +28,8 @@ services:
     build: ./requirements/nginx
     depends_on:
       - wordpress
+    volumes:
+      - ./var/Data:/var/www/html
     container_name: nginx
     image: nginx
     ports:

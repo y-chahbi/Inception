@@ -6,7 +6,8 @@ RUN apt install dirmngr ca-certificates software-properties-common gnupg gnupg2 
     && curl -sSL https://packages.sury.org/php/README.txt | bash -x \
     && apt update
 
-RUN apt-get install -y php php8.2-mysql php8.2-fpm 
+RUN apt-get install -y php7.4 php7.4-fpm mariadb-client php7.4-mysql sendmail php7.4-xml php7.4-mysqli php7.4-mysqlnd
+
 
 COPY tools/script.sh /usr/local/bin/script.sh
 
