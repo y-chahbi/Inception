@@ -1,0 +1,30 @@
+# Specify the port number on which Redis will listen for connections.
+# Default is 6379.
+port 6379
+
+# Specify the interface to bind Redis to. By default, it listens to all interfaces.
+bind 0.0.0.0
+
+# Set the maximum number of connected clients at the same time.
+# Default is 10000 clients.
+maxclients 10000
+
+# Specify the path to the Redis log file.
+logfile /var/log/redis/redis-server.log
+
+# Set the Redis databases. By default, it's set to 16 databases numbered from 0 to 15.
+databases 16
+
+# Enable/disable persistence to disk.
+save 900 1
+save 300 10
+save 60 10000
+
+# Specify the directory where Redis will store its dump file.
+dir /var/lib/redis
+
+# Require clients to issue AUTH before processing any other commands.
+requirepass pass
+
+# Enable AOF (Append Only File) persistence mode.
+appendonly yes

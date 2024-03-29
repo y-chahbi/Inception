@@ -1,5 +1,17 @@
 version: '3.1'
 services:
+  mariadb:
+    build: ./requirements/mariadb
+    container_name: mariadb
+    image: mariadb
+    volumes:
+      - /var/Data/MD:/var/www/html
+    ports:
+      - 3306:3306
+    env_file:
+      - .env
+    networks:
+      - ConNet
   wordpress:
     build: ./requirements/wordpress
     container_name: wordpress
@@ -14,28 +26,29 @@ services:
       - .env
     networks:
       - ConNet
-  mariadb:
-    build: ./requirements/mariadb
-    container_name: mariadb
-    image: mariadb
-    volumes:
-      - /var/Data/MD:/var/www/html
-    ports:
-      - 3306:3306
-    env_file:
-      - .env
-    networks:
-      - ConNet
   nginx:
     build: ./requirements/nginx
     depends_on:
       - wordpress
+      - redis
     volumes:
       - /var/Data/WP:/var/www/html
     container_name: nginx
     image: nginx
     ports:
       - 443:443
+    env_file:
+      - .env
+    networks:
+      - ConNet
+  redis:
+    build: ./requirements/bonus/redis
+    container_name: redis
+    image: redis
+    volumes:
+      - /var/Data/RDS:/var/lib/redis
+    ports:
+      - 6379:6379
     env_file:
       - .env
     networks:
