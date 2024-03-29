@@ -7,7 +7,7 @@ services:
     depends_on:
       - mariadb
     volumes:
-      - ./var/Data:/var/www/html
+      - /var/Data/WP:/var/www/html
     ports:
       - 9000:9000
     env_file:
@@ -18,6 +18,8 @@ services:
     build: ./requirements/mariadb
     container_name: mariadb
     image: mariadb
+    volumes:
+      - /var/Data/MD:/var/www/html
     ports:
       - 3306:3306
     env_file:
@@ -29,7 +31,7 @@ services:
     depends_on:
       - wordpress
     volumes:
-      - ./var/Data:/var/www/html
+      - /var/Data/WP:/var/www/html
     container_name: nginx
     image: nginx
     ports:
