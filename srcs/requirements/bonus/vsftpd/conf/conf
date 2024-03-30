@@ -14,7 +14,6 @@ userlist_deny=YES
 tcp_wrappers=YES
 pasv_min_port=60000
 pasv_max_port=65000
-xferlog_enable=YES
 xferlog_file=/var/log/vsftpd.log
 xferlog_std_format=YES
 secure_chroot_dir=/var/run/vsftpd/empty

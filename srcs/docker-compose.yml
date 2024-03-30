@@ -11,7 +11,8 @@ services:
     env_file:
       - .env
     networks:
-      - ConNet
+      ConNet:
+        ipv4_address: 10.5.0.4
   wordpress:
     build: ./requirements/wordpress
     container_name: wordpress
@@ -25,7 +26,8 @@ services:
     env_file:
       - .env
     networks:
-      - ConNet
+      ConNet:
+        ipv4_address: 10.5.0.3
   nginx:
     build: ./requirements/nginx
     depends_on:
@@ -40,7 +42,19 @@ services:
     env_file:
       - .env
     networks:
-      - ConNet
+      ConNet:
+        ipv4_address: 10.5.0.2
+  page:
+    build: ./requirements/bonus/page
+    container_name: page
+    image: page
+    ports:
+      - 361:360
+    env_file:
+      - .env
+    networks:
+      ConNet:
+        ipv4_address: 10.5.0.9
   redis:
     build: ./requirements/bonus/redis
     container_name: redis
@@ -52,7 +66,8 @@ services:
     env_file:
       - .env
     networks:
-      - ConNet
+      ConNet:
+        ipv4_address: 10.5.0.5
   adminer:
     build: ./requirements/bonus/adminer
     container_name: adminer
@@ -62,7 +77,8 @@ services:
     env_file:
       - .env
     networks:
-      - ConNet
+      ConNet:
+        ipv4_address: 10.5.0.6
   vsftpd:
     build: ./requirements/bonus/vsftpd
     container_name: vsftpd
@@ -71,10 +87,16 @@ services:
       - 20:20
       - 21:21
     volumes:
-      - /var/Data/WP:/var/www/html
+      - /var/Data/WP:/home/$FTPUSER
     env_file:
       - .env
     networks:
-      - ConNet
+      ConNet:
+        ipv4_address: 10.5.0.7
 networks:
   ConNet:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
