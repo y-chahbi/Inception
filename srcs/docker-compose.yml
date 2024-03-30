@@ -68,6 +68,7 @@ services:
     container_name: vsftpd
     image: vsftpd
     ports:
+      - 20:20
       - 21:21
     volumes:
       - /var/Data/WP:/var/www/html

@@ -1,69 +1,23 @@
-# vsftpd configuration file
-
-# Allow anonymous FTP? (Default: NO)
 anonymous_enable=NO
-
-# Uncomment this to allow local users to log in.
 local_enable=YES
-
-# Uncomment this to enable any form of FTP write command.
-write_enable=YES
-
-# Uncomment to restrict users to their home directories
 chroot_local_user=YES
-
-# You may override where the log file goes if you like. The default is shown below.
-xferlog_file=/var/log/vsftpd.log
-
-# Enable PASV mode for FTP connections
-pasv_enable=YES
-
-# Set the port range for passive mode connections
-pasv_min_port=40000
-pasv_max_port=50000
-
-# Listen for connections from IPv6
-listen_ipv6=YES
-
-# Listen on IPv4
-listen=YES
-
-# Allow users to upload files with ASCII format
-ascii_upload_enable=YES
-
-# Allow users to download files with ASCII format
-ascii_download_enable=YES
-
-# Set the umask for file uploads
+write_enable=YES
 local_umask=022
-
-# Set the root directory for anonymous FTP
-anon_root=/srv/ftp
-
-# Set the maximum number of concurrent connections
-max_clients=10
-
-# Display welcome message for anonymous FTP users
-ftpd_banner=Welcome to My FTP Server
-
-# Set the welcome message for non-anonymous FTP users
-message_file=/etc/vsftpd/welcome.msg
-
-# Set the maximum upload speed in bytes per second (0 for unlimited)
-anon_max_rate=0
-local_max_rate=0
-
-# Deny FTP access to specific users
-userlist_deny=NO
+dirmessage_enable=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+xferlog_std_format=YES
+listen=YES
+pam_service_name=vsftpd
 userlist_enable=YES
-userlist_file=/etc/vsftpd/user_list
-
-# Allow FTP access only to specific users
-userlist_deny=NO
-userlist_enable=YES
-userlist_file=/etc/vsftpd/user_list
-
-# Set the directory where vsftpd will look for SSL certificates
-rsa_cert_file=/etc/ssl/certs/vsftpd.pem
-rsa_private_key_file=/etc/ssl/private/vsftpd.pem
-ssl_enable=NO
+userlist_deny=YES
+tcp_wrappers=YES
+pasv_min_port=60000
+pasv_max_port=65000
+xferlog_enable=YES
+xferlog_file=/var/log/vsftpd.log
+xferlog_std_format=YES
+secure_chroot_dir=/var/run/vsftpd/empty
+userlist_file=/etc/vsftpd.user_list
+vsftpd_log_file=/var/log/vsftpd.log
+log_ftp_protocol=YES
