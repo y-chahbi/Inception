@@ -9,6 +9,6 @@ COPY tools/script.sh /usr/local/bin/script.sh
 RUN mkdir -p /var/backups/databases && \
     chmod +x /usr/local/bin/script.sh
 
-RUN echo "*/1 * * * * /usr/local/bin/script.sh" | crontab -
+RUN echo "0 0 * * * /usr/local/bin/script.sh" | crontab -
 
 CMD ["cron", "-f"]
