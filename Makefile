@@ -5,7 +5,9 @@ go:
 	mkdir -p /var/Data/RDS
 
 end:
-	cd srcs && docker-compose down --rmi all --volumes --remove-orphans && cd ..
+	docker-compose -f srcs/docker-compose.yml down -v
+	
+# --rmi all --volumes --remove-orphans && cd ..
 
 clear: end
 	docker system prune -a

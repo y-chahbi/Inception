@@ -2,13 +2,14 @@ FROM debian:bullseye
 
 RUN apt-get update && \
     apt-get install -y rsync vim cron mariadb-client && \
-    export EDITOR=/usr/bin/vim
+    export EDITOR=/usr/bin/vim && \
+    export SHELL=/bin/bash
 
-COPY tools/script.sh /usr/local/bin/script.sh
+COPY tools/script.sh /script.sh
 
 RUN mkdir -p /var/backups/databases && \
-    chmod +x /usr/local/bin/script.sh
+    chmod +x /script.sh
 
-RUN echo "0 0 * * * /usr/local/bin/script.sh" | crontab -
+RUN echo "*/1 * * * * /script.sh" | crontab -
 
-CMD ["cron", "-f"]
+CMD env > env.sh && cron -f
