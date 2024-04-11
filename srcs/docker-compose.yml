@@ -5,7 +5,7 @@ services:
     container_name: mariadb
     image: mariadb
     volumes:
-      - /var/Data/MD:/var/www/html
+      - MD:/var/lib/mysql
     ports:
       - 3306:3306
     env_file:
@@ -20,7 +20,7 @@ services:
     depends_on:
       - mariadb
     volumes:
-      - /var/Data/WP:/var/www/html
+      - WP:/var/www/html
     ports:
       - 9000:9000
     env_file:
@@ -34,7 +34,7 @@ services:
       - wordpress
       - redis
     volumes:
-      - /var/Data/WP:/var/www/html
+      - WP:/var/www/html
     container_name: nginx
     image: nginx
     ports:
@@ -60,7 +60,7 @@ services:
     container_name: redis
     image: redis
     volumes:
-      - /var/Data/RDS:/var/lib/redis
+      - RDS:/var/lib/redis
     ports:
       - 6379:6379
     env_file:
@@ -87,7 +87,7 @@ services:
       - 20:20
       - 21:21
     volumes:
-      - /var/Data/WP:/home/$FTPUSER
+      - WP:/home/$FTPUSER
     env_file:
       - .env
     networks:
@@ -100,7 +100,7 @@ services:
     ports:
       - 600:600
     volumes:
-      - /var/Data/WP:/var/wordpress
+      - WP:/var/wordpress
     env_file:
       - .env
     networks:
@@ -113,3 +113,19 @@ networks:
      config:
        - subnet: 10.5.0.0/16
          gateway: 10.5.0.1
+volumes:
+  WP:
+    driver_opts:
+      type: none
+      o: bind
+      device: /var/Data/WP
+  MD:
+    driver_opts:
+      type: none
+      o: bind
+      device: /var/Data/MD
+  RDS:
+    driver_opts:
+      type: none
+      o: bind
+      device: /var/Data/RDS
