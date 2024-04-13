@@ -31,6 +31,11 @@ While Docker and virtual machines both provide isolation and allow running multi
 - They require a hypervisor to manage and allocate resources, which introduces overhead.
 - Each virtual machine has its own operating system, leading to larger resource consumption and slower startup times compared to Docker containers.
 
+### Why we use Docker containers insted of Virtual Machines:
+- because they share the host system's kernel, unlike virtual machines, which require their own operating system. This means Docker containers have lower overhead and use fewer resources.
+
+
+
 ## What is operating system?
 The OS is software that manages computer hardware and provides services for computer programs, It acts as an intermediary between the computer hardware and the user applications.
 
