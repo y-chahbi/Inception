@@ -31,6 +31,15 @@ While Docker and virtual machines both provide isolation and allow running multi
 - They require a hypervisor to manage and allocate resources, which introduces overhead.
 - Each virtual machine has its own operating system, leading to larger resource consumption and slower startup times compared to Docker containers.
 
+## What is operating system?
+The OS is software that manages computer hardware and provides services for computer programs, It acts as an intermediary between the computer hardware and the user applications.
+
+### What is Kernel Mode?
+Its where the operating system has full control without restriction.
+
+### What is User Mode?
+Its a regular mode where applications and users do their work. and system resources is restricted, and direct access to critical system functions is not allowed.
+
 ## Why do we need Virtual Machines?
 Virtual machines are useful in scenarios where:
 - Different operating systems are required for running applications.
