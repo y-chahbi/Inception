@@ -11,6 +11,15 @@ download image using docker :: docker pull image
 stoping a container :: docker stop containerName 
 starting a container :: docker start containerName 
 seeing status of the status :: docker stats
+removing images :: docker imgae rm image 
+removing all the images :: docker imgae rm $(docker image ls -q)
+removing all the containers and stoping them :: docker container rm -f $(docker container ls -a -q)
+
+
+Docker Compose 
+
+to run docker-compose.yml we use command :: docker-compose up
+
 
 
 
