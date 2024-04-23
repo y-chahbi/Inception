@@ -1,6 +1,11 @@
 # Inception 
 
 
+builed an image :: docker build -t tagname . -> building an image withe the tag name and where the dockerfile is.
+show images :: docker image ls || docker images
+run an image :: docker run tagname -> start a cotainer from an image its calssed the tagname.
+
+
 delete all containers :: docker system prune -a
 
 start : docker-compose -f docker-compose.yml up --build
