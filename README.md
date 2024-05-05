@@ -65,6 +65,30 @@ Its a regular mode where applications and users do their work. and system resour
 ### What is Cgroups?
 Control Groups (cgroups) is a Linux kernel feature that allows you to limit, allocate, set priorities for different groups of processes, and isolate resource usage (such as CPU, memory, disk I/O, and network bandwidth) among a collection of processes. It provides a way to organize processes hierarchically and apply resource constraints or priorities to them.
 
+-------------------------------------------------------------
+
+what is a container?
+  - it feels like a VM :
+    - own process space
+    - own network interface
+    - can run stuff as root
+    - can install packages
+    - can run services
+    - can mess up routing, iptabels
+  - it's not quite like a VM:
+    - uses the host kernel
+    - can't boot a different OS
+    - cant't have its own modules
+    - doesn't need init as PID 1
+    - doesn't need  syslogd, cron
+      > it's just a normal processes on the host machine
+      - contrast with VMs which are opaque
+container are not on the kernal
+control groups : let you implement metering and limiting on the resources used by processes so you can count the memory and limit it do the same with CPU with IO either block IO or network IO you can also set some kind of SEL kind of permission managment on divice nodes and you can also crowd control  
+docker, LXC, rkt, runC, systemd-nspqwn, OpenVZ, Jails, Zones, crowd control 
+
+-------------------------------------------------------------
+
 ### What is Namespaces?
 Namespaces in Linux act like virtual partitions, dividing up system resources so that different processes can have their own isolated environments. Each namespace provides a specific type of isolation: the PID namespace for processes, the network namespace for network resources, the mount namespace for file systems, the user and group namespaces for user and group IDs, the UTS namespace for hostnames, and the IPC namespace for inter-process communication resources. This separation allows processes to run independently and securely, making namespaces crucial for technologies like containerization, where each container needs its own isolated environment to operate efficiently.
 
