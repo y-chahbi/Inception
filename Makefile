@@ -1,7 +1,7 @@
 go:
-	sudo mkdir -p /var/Data/MD
-	sudo mkdir -p /var/Data/WP
-	sudo mkdir -p /var/Data/RDS
+	sudo mkdir -p /home/ychahbi/data/MD
+	sudo mkdir -p /home/ychahbi/data/WP
+	sudo mkdir -p /home/ychahbi/data/RDS
 	docker-compose -f srcs/docker-compose.yml up --build
 
 end:
