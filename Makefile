@@ -1,8 +1,8 @@
 go:
+	sudo mkdir -p /var/Data/MD
+	sudo mkdir -p /var/Data/WP
+	sudo mkdir -p /var/Data/RDS
 	docker-compose -f srcs/docker-compose.yml up --build
-	mkdir -p /var/Data/MD
-	mkdir -p /var/Data/WP
-	mkdir -p /var/Data/RDS
 
 end:
 	docker-compose -f srcs/docker-compose.yml down -v
