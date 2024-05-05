@@ -118,14 +118,14 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /var/Data/WP
+      device: /home/ychahbi/data/WP
   MD:
     driver_opts:
       type: none
       o: bind
-      device: /var/Data/MD
+      device: /home/ychahbi/data/MD
   RDS:
     driver_opts:
       type: none
       o: bind
-      device: /var/Data/RDS
+      device: /home/ychahbi/data/RDS
