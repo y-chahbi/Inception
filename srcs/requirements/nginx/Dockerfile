@@ -13,6 +13,6 @@ COPY tools/script.sh /usr/local/bin/script.sh
 RUN chmod +x /usr/local/bin/script.sh
 
 
-# EXPOSE 80
+EXPOSE 443
 
 CMD [ "./usr/local/bin/script.sh" ]
