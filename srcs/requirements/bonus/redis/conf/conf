@@ -24,7 +24,7 @@ save 60 10000
 dir /var/lib/redis
 
 # Require clients to issue AUTH before processing any other commands.
-requirepass pass
+requirepass 0000
 
 # Enable AOF (Append Only File) persistence mode.
 appendonly yes

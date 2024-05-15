@@ -4,7 +4,7 @@ x509_extensions = v3_req
 prompt = no
 
 [req_distinguished_name]
-countryName = XX
+countryName = MA
 stateOrProvinceName = Example State
 localityName = Example City
 organizationName = Example Organization

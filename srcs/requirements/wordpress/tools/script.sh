@@ -11,6 +11,7 @@ cd /var/www/html
 
 wp core download --allow-root
 mv wp-config-sample.php wp-config.php
+chown www-data:www-data  -R *
 mkdir /run/php
 
 wp config set SERVER_PORT 3306 --allow-root
