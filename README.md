@@ -1,7 +1,7 @@
 # Inception 
 
 
-builed an image :: docker build -t tagname . -> building an image withe the tag name and where the dockerfile is.
+builed an image :: docker build -t tagname . -> building an image withe the tag name and where the dockerfile is. 
 show images :: docker image ls || docker images
 show stop containers :: docker ps -a
 start a container and intract with it :: docker run -it tagname -> run and enter to the container names tagname.
