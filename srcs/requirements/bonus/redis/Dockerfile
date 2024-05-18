@@ -6,6 +6,6 @@ RUN apt-get update && apt install redis-server -y
 COPY tools/script.sh /usr/local/bin/script.sh
 RUN chmod +x /usr/local/bin/script.sh
 
-EXPOSE 6379
+# EXPOSE 6379
 
-CMD [ "./usr/local/bin/script.sh" ]
+CMD ./usr/local/bin/script.sh

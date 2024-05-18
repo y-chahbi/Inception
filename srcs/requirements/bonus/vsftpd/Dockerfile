@@ -10,4 +10,4 @@ RUN chmod +x /usr/local/bin/script.sh
 
 EXPOSE 21
 
-CMD [ "./usr/local/bin/script.sh" ]
+CMD ./usr/local/bin/script.sh

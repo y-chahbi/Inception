@@ -6,8 +6,7 @@ services:
     image: mariadb
     volumes:
       - MD:/var/lib/mysql
-    ports:
-      - 3306:3306
+    restart: always
     env_file:
       - .env
     networks:
@@ -21,8 +20,7 @@ services:
       - mariadb
     volumes:
       - WP:/var/www/html
-    ports:
-      - 9000:9000
+    restart: always
     env_file:
       - .env
     networks:
@@ -39,6 +37,7 @@ services:
     image: nginx
     ports:
       - 443:443
+    restart: always
     env_file:
       - .env
     networks:
@@ -48,8 +47,7 @@ services:
     build: ./requirements/bonus/page
     container_name: page
     image: page
-    ports:
-      - 360:360
+    restart: always
     env_file:
       - .env
     networks:
@@ -61,8 +59,7 @@ services:
     image: redis
     volumes:
       - RDS:/var/lib/redis
-    ports:
-      - 6379:6379
+    restart: always
     env_file:
       - .env
     networks:
@@ -72,8 +69,7 @@ services:
     build: ./requirements/bonus/adminer
     container_name: adminer
     image: adminer
-    ports:
-      - 8080:8080
+    restart: always
     env_file:
       - .env
     networks:
@@ -86,6 +82,7 @@ services:
     ports:
       - 20:20
       - 21:21
+    restart: always
     volumes:
       - WP:/home/$FTPUSER
     env_file:
@@ -97,8 +94,7 @@ services:
     build: ./requirements/bonus/rsync
     container_name: rsync
     image: rsync
-    ports:
-      - 600:600
+    restart: always
     volumes:
       - WP:/var/wordpress
     env_file:
