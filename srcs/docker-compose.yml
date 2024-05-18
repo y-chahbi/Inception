@@ -79,10 +79,9 @@ services:
     build: ./requirements/bonus/vsftpd
     container_name: vsftpd
     image: vsftpd
-    ports:
-      - 20:20
-      - 21:21
     restart: always
+    ports:
+      - 21:21
     volumes:
       - WP:/home/$FTPUSER
     env_file:
