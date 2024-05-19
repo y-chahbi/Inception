@@ -35,6 +35,14 @@ stop : docker-compose down --rmi all --volumes --remove-orphans
 
 
 
+
+
+
+
+
+/////////////////////////////////////////
+
+
 # Docker vs Virtual Machines
 
 ## What is Docker?
