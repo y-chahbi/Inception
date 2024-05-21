@@ -16,7 +16,7 @@ removing all the images :: docker imgae rm $(docker image ls -q)
 removing all the containers and stoping them :: docker container rm -f $(docker container ls -a -q)
 
 
-Docker Compose 
+Docker Compose
 
 to run docker-compose.yml we use command :: docker-compose up
 
