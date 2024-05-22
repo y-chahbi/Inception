@@ -18,7 +18,7 @@ removing all the containers and stoping them :: docker container rm -f $(docker 
 
 Docker Compose
 
-to run docker-compose.yml we use command :: docker-compose up
+to run docker-compose.yml we use command :: docker-compose up 
 
 
 
