@@ -16,9 +16,9 @@ removing all the images :: docker imgae rm $(docker image ls -q)
 removing all the containers and stoping them :: docker container rm -f $(docker container ls -a -q)
 
 
-Docker Compose 
+Docker Compose
 
-to run docker-compose.yml we use command :: docker-compose up
+to run docker-compose.yml we use command :: docker-compose up 
 
 
 
@@ -33,6 +33,14 @@ stop : docker-compose down --rmi all --volumes --remove-orphans
 /////////////////////////////////////////
 
 
+
+
+
+
+
+
+
+/////////////////////////////////////////
 
 
 # Docker vs Virtual Machines
@@ -65,7 +73,7 @@ Its a regular mode where applications and users do their work. and system resour
 ### What is Cgroups?
 Control Groups (cgroups) is a Linux kernel feature that allows you to limit, allocate, set priorities for different groups of processes, and isolate resource usage (such as CPU, memory, disk I/O, and network bandwidth) among a collection of processes. It provides a way to organize processes hierarchically and apply resource constraints or priorities to them.
 
-### What is Namespaces?
+### What is Namespaces? 
 Namespaces in Linux act like virtual partitions, dividing up system resources so that different processes can have their own isolated environments. Each namespace provides a specific type of isolation: the PID namespace for processes, the network namespace for network resources, the mount namespace for file systems, the user and group namespaces for user and group IDs, the UTS namespace for hostnames, and the IPC namespace for inter-process communication resources. This separation allows processes to run independently and securely, making namespaces crucial for technologies like containerization, where each container needs its own isolated environment to operate efficiently.
 
 ## Why do we need Virtual Machines?
