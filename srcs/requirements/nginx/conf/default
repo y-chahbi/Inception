@@ -11,6 +11,11 @@ server {
         try_files $uri $uri/ =404;
     }
 
+    location ^~ /adminer {
+        include proxy_params;
+        proxy_pass http://adminer:8080;
+    }
+
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
         include fastcgi_params;
