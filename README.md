@@ -4,7 +4,7 @@
 builed an image :: docker build -t tagname . -> building an image withe the tag name and where the dockerfile is.
 show images :: docker image ls || docker images
 show stop containers :: docker ps -a
-start a container and intract with it :: docker run -it tagname -> run and enter to the container names tagname. 
+start a container and intract with it :: docker run -it tagname -> run and enter to the container names tagname.  
 connect to an image :: docker exec -it name sh -> connecting to an image names name using sh
 run an image :: docker run tagname -> start a cotainer from an image its calssed the tagname. if the image is not in localmachine it will pull it from the official website
 download image using docker :: docker pull image
