@@ -8,7 +8,7 @@ start a container and intract with it :: docker run -it tagname -> run and enter
 connect to an image :: docker exec -it name sh -> connecting to an image names name using sh
 run an image :: docker run tagname -> start a cotainer from an image its calssed the tagname. if the image is not in localmachine it will pull it from the official website
 download image using docker :: docker pull image
-stoping a container :: docker stop containerName 
+stoping a container :: docker stop containerName  
 starting a container :: docker start containerName 
 seeing status of the status :: docker stats
 removing images :: docker imgae rm image 
