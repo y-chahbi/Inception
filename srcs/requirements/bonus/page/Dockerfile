@@ -1,11 +1,11 @@
 FROM debian:bullseye
 
 RUN apt-get update
-RUN apt install wget apache2 unzip -y
+RUN apt install wget nginx unzip -y
+
+COPY conf/default /etc/nginx/nginx.conf
 
 COPY tools/script.sh /usr/local/bin/script.sh
 RUN chmod +x /usr/local/bin/script.sh
-
-# EXPOSE 360
 
 CMD ./usr/local/bin/script.sh

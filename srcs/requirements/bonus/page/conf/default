@@ -1,0 +1,25 @@
+events {
+    worker_connections 1024;
+}
+
+http {
+    include    /etc/nginx/mime.types;
+    server {
+        listen 360;
+
+        server_name page.ychahbi.42.fr;
+
+        default_type application/octet-stream;
+        keepalive_timeout 65;
+        gzip on;
+        gzip_types text/css text/x-component application/x-javascript application/javascript text/javascript text/x-js text/richtext image/svg+xml text/plain text/xsd text/xsl text/xml image/x-icon;
+
+        access_log /var/log/nginx/wordpress_access.log;
+        error_log /var/log/nginx/wordpress_error.log;
+
+        location / {
+            root /var/www/html;
+            index index.html;
+        }
+    }
+}
