@@ -1,5 +1,6 @@
 all:
-	sudo docker-compose -f srcs/docker-compose.yml up -d --build
+	sudo docker-compose -f srcs/docker-compose.yml up --build
+	# sudo docker-compose -f srcs/docker-compose.yml up -d --build
 
 go:
 	sudo mkdir -p /home/ychahbi/data/MD

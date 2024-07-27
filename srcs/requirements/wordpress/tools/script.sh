@@ -14,7 +14,6 @@ mv wp-config-sample.php wp-config.php
 chown www-data:www-data  -R *
 mkdir /run/php
 
-wp config set SERVER_PORT 3306 --allow-root
 wp config set DB_NAME $MYSQL_DBNAME --allow-root --path=/var/www/html
 
 wp config set WP_REDIS_HOST $REDIS --allow-root --path=/var/www/html

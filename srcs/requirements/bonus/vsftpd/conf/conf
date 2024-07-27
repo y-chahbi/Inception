@@ -1,28 +1,3 @@
-# anonymous_enable=NO
-# local_enable=YES
-# chroot_local_user=YES
-# write_enable=YES
-# local_umask=022
-# dirmessage_enable=YES
-# xferlog_enable=YES
-# connect_from_port_20=YES
-# xferlog_std_format=YES
-# listen=YES
-# pam_service_name=vsftpd
-# userlist_enable=YES
-# userlist_deny=YES
-# tcp_wrappers=YES
-# pasv_min_port=60000
-
-# pasv_max_port=65000
-# xferlog_file=/var/log/vsftpd.log
-# xferlog_std_format=YES
-# secure_chroot_dir=/var/run/vsftpd/empty
-# userlist_file=/etc/vsftpd.user_list
-# vsftpd_log_file=/var/log/vsftpd.log
-# log_ftp_protocol=YES
-
-
 
 anonymous_enable=NO
 local_enable=YES

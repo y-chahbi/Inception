@@ -7,6 +7,8 @@ services:
     image: mariadb
     volumes:
       - MD:/var/lib/mysql
+    ports:
+      - 3306:3306
     restart: always
     env_file:
       - .env
@@ -67,6 +69,8 @@ services:
     volumes:
       - RDS:/var/lib/redis
     restart: always
+    ports:
+      - 6379:6379
     env_file:
       - .env
     networks:
