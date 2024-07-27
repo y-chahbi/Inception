@@ -12,6 +12,4 @@ RUN mkdir -p /var/backups/databases && \
 
 RUN echo "*/1 * * * * /script.sh" | crontab -
 
-# EXPOSE 600
-
 CMD env > env.sh && cron -f
