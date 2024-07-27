@@ -93,8 +93,11 @@ services:
     container_name: vsftpd
     image: vsftpd
     restart: always
+    depends_on:
+      - wordpress
     ports:
       - 21:21
+      - "10000-10100:10000-10100"
     volumes:
       - WP:/home/$FTPUSER
     env_file:

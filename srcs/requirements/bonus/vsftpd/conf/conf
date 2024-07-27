@@ -9,3 +9,8 @@ pam_service_name=vsftpd
 userlist_enable=YES
 userlist_deny=YES
 userlist_file=/etc/vsftpd.user_list
+allow_writeable_chroot=YES
+
+pasv_enable=YES
+pasv_min_port=10000
+pasv_max_port=10100
