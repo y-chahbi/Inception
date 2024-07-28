@@ -5,7 +5,6 @@ RUN apt-get install -y nginx
 RUN apt-get install -y openssl
 COPY conf/sslconf /etc/ssl/sslconf
 
-RUN adduser --system --no-create-home --disabled-login --disabled-password --group nginx
 
 COPY conf/default /etc/nginx/nginx.conf
 RUN mkdir -p /etc/nginx/certs/

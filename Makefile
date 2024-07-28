@@ -8,7 +8,7 @@ init:
 	sudo mkdir -p /home/ychahbi/data/RDS
 	sudo docker-compose -f srcs/docker-compose.yml up --build
 
-kill:
+kill: $(clear)
 	sudo docker-compose -f srcs/docker-compose.yml down
 	sudo rm -rf /home/ychahbi/data
 
